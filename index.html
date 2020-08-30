@@ -7,6 +7,7 @@
         <title>My Portfolio Website</title>
         <link rel="stylesheet" type="text/css" href="./Stylesheet/portfolio.css">
     </head>
+<!-- END Head -->
 
 <!-- Body section -->
     <body class="background">
@@ -14,21 +15,25 @@
 <!-- Navbar section -->
         <div class="navbar">
             <a class="active" href="#home">Home</a>
+            <a href="#slideshow">Slideshow</a>
             <a href="#about">About</a>
             <a href="#github">Github</a>
-            <a href="#contact">Contact</a>
+            <a onclick="openForm()" ondblclick="closeForm()">Contact</a>
         </div>
+<!-- END Navbar -->
 
 <!-- Home section -->
-        <br>
-        <br>
+        <div id="home">
+            <br>
+            <br>
 
 <!-- Video section -->
-        <div id="home">
             <video autoplay muted loop id="typing-video">
                 <source src="./Stylesheet/Video/Keyboard.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video. <!-- display if video fails -->
             </video>
         </div>
+<!-- END Home/Video  -->
 
 <!-- Video text-->
         <div class="video-text">
@@ -47,22 +52,66 @@
                     </strong>
                 </p>
         </div>
+<!-- END Video text -->
+
+<!-- Slideshow section -->
+        <div id="slideshow">
+            <div id="slideshow_background">
+                <div id="slideshow_container">
+                    
+                    <div class="mySlides fade">
+                        <div class="slide_number">1 of 3</div>
+                            <img class="slide_show_images" src="Stylesheet/Images/BZ_1.jpg" style="width:100%">
+                                <div class="text">I am available to assist you on your project!</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="slide_number">2 of 3</div>
+                            <img class="slide_show_images" src="Stylesheet/Images/HTML_CSS_and_JavaScript.jpeg" style="width:100%">
+                                <div class="text">I am a front-end web developer,<br> trained in:<br>HTML, CSS, and JavaScript.</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="slide_number">3 of 3</div>
+                            <img class="slide_show_images" src="Stylesheet/Images/computer.png" style="width:100%">
+                                <div class="text">
+                                    <a onclick="openForm()" href="#contact" style="color:white;">Contact me now!</a>
+                                </div>
+                    </div>
+
+                        <a class="previous" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                </div>
+
+                <br>
+
+                <div style="text-align:center">
+                
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>                    
+
+                </div>
+            </div>
+        </div>
+<!-- END Slideshow -->
 
 <!-- About section -->
         <div class="row" id="about">
             <div class="column-2">
-                <img src="./Stylesheet/Images/image.jpg" alt="tbd"> <!-- Zoom in on peak with CSS styling -->
+                <img src="./Stylesheet/Images/Coding-Featured-Image-Thumb.jpg" alt="tbd"> <!-- Zoom in on peak with CSS styling -->
             </div>
 
             <div class="column-1">
                 <h1>About</h1>
-                    <p>I am a front end developer who loves the creativity that it allows me! I am an active outdoorsman and enjoy hiking, camping, and backpacking. When I'm not working or exploring the wildernesses of the world, I manage an extensive garden in my yard.
+                    <p>I am a front end developer who loves the creativity that it allows me! I love spending time with my girlfriend and travelling with her. I am also an active outdoorsman and enjoy hiking, camping, and backpacking. When I'm not working, travelling, or exploring the wildernesses of the world, I manage an extensive garden in my yard.
                     <br><br>I am a graduate of <a href="https://learncodinganywhere.com" target="blank">The Tech Academy</a>'s Front End Web Developer Boot Camp, and trained and experience in the following web languages: HTML, CSS, and JavaScript.
                     <br><br>I am a creative and dedicated programmer, and I would love to work with you on your project. <a href="#contact">Contact</a> me below!
                     </p>
             </div>
         </div>
-
+<!-- END About -->
 
 <!-- Github section -->
         <div class="row" id="github">
@@ -76,27 +125,30 @@
                 <a href="https://github.com/bzancanella" target="blank"><img src="./Stylesheet/Images/github_PNG20.png" alt="github"></a>
             </div>
         </div>
-
+<!-- END Github -->
 
 <!-- Contact section -->
-        <div class="row" id="contact">
-            <div class="column-3">
-                <img src="./Stylesheet/Images/email.png" alt="contact-image">
-            </div>
+        <div id="contact">
+            <button onclick="openForm()" class="pop_up_button"> CONTACT </button>
+                <div class="form-popup" id="myForm">
+                    <form action="https://formspree.io/bzancanella@gmail.com" method="POST" class="form-container">
+                    <h1>Contact</h1>
+                        <label for="name"><b>Name</b></label>
+                            <input type="text" placeholder="Type your name here" name="name" required>
+                        <label for="phone"><b>Phone</b></label>
+                            <input type="text" placeholder="Type your phone number here" name="phone">
+                        <label for="email"><b>Email</b></label>
+                            <input type="text" placeholder="Type your email address here" name="email" required>
+                        <label for="message"><b>Message</b></label>
+                            <input type="text" placeholder="Type your message here" name="message">
 
-            <div class="column-1">
-                <h1>Contact</h1>
-                    <form action="" method="get">
-                        <label>Name:</label>
-                            <input type="text" placeholder="Please enter your name here">
-                        <label>Email:</label>
-                            <input type="text" id="Email" name="Email" placeholder="Please enter your email here">
-                        <label>Message:</label>
-                            <input type="text" id="Message" name="Message" placeholder="Please write your message here">
-                            <input type="submit" value="Submit">
+                        <button type="submit" class="btn">SUBMIT</button>
+                        <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
+
                     </form>
-            </div>
+                </div>
         </div>
+<!-- END Contact -->
 
 <!-- Footer section -->
         <footer>
@@ -104,6 +156,9 @@
                 <center>&copy; Bryan Zancanella &nbsp; | &nbsp; <a href="https://github.com/bzancanella" target="blank">Github</a></center>
             </p>
         </footer>
+<!-- END Footer -->
+
+        <script src="js/portfolio.js"></script>
 
     </body>
 </html>
