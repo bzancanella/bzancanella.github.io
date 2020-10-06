@@ -1,11 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <!-- Head section -->
     <head>
         <meta charset="utf-8">
-        <title>My Portfolio Website</title>
-        <link rel="stylesheet" type="text/css" href="./Stylesheet/portfolio.css">
+        <title>Bryan Zancanella: A Portfolio</title>
+
+    <!-- Styling: CSS -->
+        <link rel="stylesheet" type="text/css" href="./stylesheet/style.css">
     </head>
 <!-- END Head -->
 
@@ -13,67 +15,63 @@
     <body class="background">
 
 <!-- Navbar section -->
-        <div class="navbar">
-            <a class="active" href="#home">Home</a>
-            <a href="#slideshow">Slideshow</a>
-            <a href="#about">About</a>
-            <a href="#github">Github</a>
-            <a onclick="openForm()" ondblclick="closeForm()">Contact</a>
-        </div>
+            <div class="navbar">
+                <a class="active" href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#slideshow">Slideshow</a>                
+                <a href="#github">Github</a>
+                <a onclick="openForm()" ondblclick="closeForm()">Contact</a>
+            </div>
 <!-- END Navbar -->
-
+    
 <!-- Home section -->
-        <div id="home">
-            <br>
-            <br>
-
-<!-- Video section -->
-            <video autoplay muted loop id="typing-video">
-                <source src="./Stylesheet/Video/Keyboard.mp4" type="video/mp4">
-                    Your browser does not support HTML5 video. <!-- display if video fails -->
-            </video>
+            <div id="home">
+                <br>
+                <br>
+            </div>
+    
+<!-- Background Image -->
+        <div class="background-image-container">
+            <img src="Stylesheet/Images/nature_01.jpg" alt="">
         </div>
-<!-- END Home/Video  -->
+<!-- END Background Image -->
 
-<!-- Video text-->
-        <div class="video-text">
-            <h1 style="color:white;">The Portfolio of Bryan Zancanella</h1>
-                <p>
-                    <strong>
-                        <center>
-                            <q>Computer programming is an art, because it applies accumulated knowledge to the world, 
-                            <br>because it requires skill and ingenuity, and especially because it produces objects of beauty. 
-                            <br>A programmer who subconsciously views himself as an artist will enjoy what he does and will do it better.</q>
-                            <br>-Donald Knuth<br>
-                            <br>
-                            My name is Bryan Zancanella. Welcome to my portfolio website. Here I will tell you about my background and experience.
-                            <br>Thank you for stopping by and enjoy!
-                        </center>
-                    </strong>
-                </p>
+<!-- About section -->
+        <div id="about"></div>
+        <div class="offset-window-container">
+            <div class="offset-window-1-sm-left">
+                <h1>Bryan Zancanella, Portfolio Website</h1>
+                    <p>I am a front end developer who enjoys the creativity that it allows me! I love spending time with my girlfriend and travelling together. I am also an active outdoorsman and enjoy hiking, camping, and backpacking. When I'm not working, travelling, or exploring the wildernesses of the world, I manage an extensive garden in my yard.
+                    <br><br>I am a graduate of <a href="https://learncodinganywhere.com" target="blank">The Tech Academy</a>'s Front End Web Developer Boot Camp, and trained in the following web languages: HTML, CSS, JavaScript, and SQL.
+                    <br><br>I am a creative and dedicated programmer, and I would love to work with you on your project. <a href="#contact">Contact</a> me below!
+                    </p>
+            </div>
+            <div class="offset-window-2-lg-right">                                    
+                <img src="stylesheet/images/BZ_02.jpg" alt="">
+            </div>
         </div>
-<!-- END Video text -->
+<!-- END About -->       
 
-<!-- Slideshow section -->
-        <div id="slideshow">
-            <div id="slideshow_background">
-                <div id="slideshow_container">
-                    
+<!-- Slideshow section -->        
+        <div class="offset-window-container" id="slideshow">
+            <div class="offset-window-5-lg-center">                
+                <div class="slideshow_container">  
+
                     <div class="mySlides fade">
                         <div class="slide_number">1 of 3</div>
-                            <img class="slide_show_images" src="Stylesheet/Images/BZ_1.jpg" style="width:100%">
-                                <div class="text">I am available to assist you on your project!</div>
+                            <img src="./stylesheet/images/HTML_CSS_and_JavaScript.jpeg">
+                                <div class="text">I am a front-end web developer, trained in:<br>HTML, CSS, JavaScript, and SQL.</div>
                     </div>
 
                     <div class="mySlides fade">
                         <div class="slide_number">2 of 3</div>
-                            <img class="slide_show_images" src="Stylesheet/Images/HTML_CSS_and_JavaScript.jpeg" style="width:100%">
-                                <div class="text">I am a front-end web developer,<br> trained in:<br>HTML, CSS, and JavaScript.</div>
+                            <img src="./stylesheet/images/code_01.png">                                
+                                <div class="text">I am available to assist you on your project!</div>
                     </div>
-
+                    
                     <div class="mySlides fade">
-                        <div class="slide_number">3 of 3</div>
-                            <img class="slide_show_images" src="Stylesheet/Images/computer.png" style="width:100%">
+                        <div class="slide_number">3 of 3</div>                            
+                            <img src="./stylesheet/images/BZ_1.jpg">
                                 <div class="text">
                                     <a onclick="openForm()" href="#contact" style="color:white;">Contact me now!</a>
                                 </div>
@@ -92,37 +90,21 @@
                     <span class="dot" onclick="currentSlide(2)"></span>
                     <span class="dot" onclick="currentSlide(3)"></span>                    
 
-                </div>
+                </div>                
             </div>
-        </div>
-<!-- END Slideshow -->
-
-<!-- About section -->
-        <div class="row" id="about">
-            <div class="column-2">
-                <img src="./Stylesheet/Images/Coding-Featured-Image-Thumb.jpg" alt="tbd"> <!-- Zoom in on peak with CSS styling -->
-            </div>
-
-            <div class="column-1">
-                <h1>About</h1>
-                    <p>I am a front end developer who loves the creativity that it allows me! I love spending time with my girlfriend and travelling with her. I am also an active outdoorsman and enjoy hiking, camping, and backpacking. When I'm not working, travelling, or exploring the wildernesses of the world, I manage an extensive garden in my yard.
-                    <br><br>I am a graduate of <a href="https://learncodinganywhere.com" target="blank">The Tech Academy</a>'s Front End Web Developer Boot Camp, and trained and experience in the following web languages: HTML, CSS, and JavaScript.
-                    <br><br>I am a creative and dedicated programmer, and I would love to work with you on your project. <a href="#contact">Contact</a> me below!
-                    </p>
-            </div>
-        </div>
-<!-- END About -->
+            <!-- <img src="./Stylesheet/Images/Coding-Featured-Image-Thumb.jpg" alt="tbd">  -->
+        </div>  
+<!-- END Slideshow -->      
 
 <!-- Github section -->
-        <div class="row" id="github">
-            <div class="column-1">
-                <h1>Github</h1>
-                    <p>You can view my coding projects on my Github profile here:<br>
+        <div class="offset-window-container" id="github">
+            <div class="offset-window-4-sm-right">
+                <h1>Github</h1><br>
+                    <p>You can view my coding projects on my Github profile here:<br><br>
                     <center><a href="https://github.com/bzancanella" target="blank">Bryan Zancanella's Github</a></center></p>
             </div>
-
-            <div class="column-2">
-                <a href="https://github.com/bzancanella" target="blank"><img src="./Stylesheet/Images/github_PNG20.png" alt="github"></a>
+            <div class="offset-window-3-lg-left">                
+                <a href="https://github.com/bzancanella" target="blank"><img src="./Stylesheet/Images/github_PNG20.png" alt="github"></a>                
             </div>
         </div>
 <!-- END Github -->
@@ -158,7 +140,7 @@
         </footer>
 <!-- END Footer -->
 
-        <script src="./JS/portfolio.js"></script>
+        <script src="./js/portfolio.js"></script>
 
     </body>
 </html>

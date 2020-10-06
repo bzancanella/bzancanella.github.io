@@ -1,4 +1,6 @@
-// these open and close the contact form
+
+
+// Open and Close Form functions
 function openForm() {
     document.getElementById("myForm").style.display = "block";
 }
@@ -7,7 +9,7 @@ function closeForm() {
     document.getElementById("myForm").style.display = "none";
 }
 
-// slide show functions
+// Slideshow functions
 var slideIndex = 1;
     showSlides(slideIndex);
 function plusSlides(n) {

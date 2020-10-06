@@ -1,0 +1,535 @@
+/* Color Palette
+
+White
+Gray rgba(99,99,99,0.6)
+Black
+Yellow  #ffff00  rgb(255, 255, 0)  hsl(60, 100%, 50%)
+Green  #00cc00  rgb(0, 204, 0)  hsl(120, 100%, 40%)
+Teal  #33cccc  rgb(51, 204, 204)  hsl(180, 60%, 50%) OR darkcyan
+
+END Color Palette */
+
+* { /* asterisk is a universal selector that applies this effect to all elements on the page */
+    box-sizing: border-box; /* creates a box with a border within which we will place most of the text */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0%;
+        opacity: 1; /* this and transition affect the page loading fade-in effect */
+        transition:23s opacity;
+    letter-spacing: .2vw;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5vw;
+}
+
+/* contributes to fade effect on page load */
+body.fade-out {
+    opacity: .1; /* sets opacity at start of page load */
+    transition: none;
+}
+
+.navbar {
+    overflow: hidden;
+    /* background-color: rgba(240, 240, 240, 0.6); this is a whiter color for a lighter theme */
+    background-color: rgba(99,99,99,0.6);
+    border: 5px black;
+    position: absolute;
+    top: 0;
+    width: 95%;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 1px 1px 15px 1px rgb(0, 0, 0);
+    z-index: 99;
+        position: fixed;
+    -webkit-animation: moveNav 2s;
+        animation: moveNav 2s;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: rgb(255, 255, 255);
+    border-radius: 8px;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 20px;
+    text-align: center;
+    -webkit-animation: movenavText 2s;
+        animation: movenavText 2s;
+    letter-spacing: .2vw;
+    transition: .5s;
+}
+
+/* animation effect for moving the nav bar in from the left of the screen on page load */
+@keyframes moveNav {
+    from {left: -100vw;}
+    to {left: 0vw;}
+}
+
+.navbar a:hover {
+    background-color: teal;
+    color: black;    
+    font-weight: bold;
+    text-shadow: 1px 1px 10px rgb(48, 45, 45);
+    transition: transform 1s;
+    /* transform: scale(1.0); */
+    box-shadow: 1px 0 10px rgb(48, 45, 45);
+}
+
+.navbar a.active {
+    background-color: darkgrey;
+}
+
+.background-image-container img {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    top: 0;
+    z-index: -1;
+}
+
+/* slideshow section */
+
+/* slideshow styling */
+
+.mySlides {
+    display: none;    
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+/* slideshow section/container */
+
+.slideshow_container {
+    height: 390px;    
+    width: auto;    
+    position: relative;
+    margin-top: 10px;    
+}
+
+.slideshow_container img {
+    max-height: 380px;
+    max-width: 95%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0px 5px 10px 8px rgba(0,0,0,.75); 
+}
+
+/* images within slideshow */
+.slide_show_images {
+    vertical-align: middle;     
+    box-shadow: 0px 5px 10px 8px rgba(0,0,0,.75);    
+}
+
+/* next/prev buttons */
+.previous, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 2vw;
+    margin-top: -0vw;
+    color: darkgrey;
+    font-weight: bold;
+    font-size: 1.5vw;
+    border-radius: 0 5px 5px 0;
+    user-select: none;
+    transition: 0.6s ease;
+}
+
+/* positioning the right next button */
+.next {
+    right: 0;
+    border-radius: 5px 0 0 5px;
+}
+
+/* hover effect on slideshow buttons */
+.previous:hover, .next:hover {
+    background-color: rgba(0,0,0,.8);
+    color: white;
+}
+
+/* slideshow text */
+.text {
+    color: white;
+    padding: 1vw;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;;
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: .1vw;
+    font-size: 1.5vw;
+    background-color: rgba(0,0,0,0.75);
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+.slide_number {
+    color: white;
+    position: absolute;
+    top: 0;
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: .1vw;
+    font-size: 1.5vw;
+    font-weight: bold;
+    display: none;
+}
+
+.dot {
+    cursor: pointer;
+    height: 1vw;
+    width: 1vw;
+    margin: .25vw;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    position: relative;
+    z-index: 1;
+}
+
+/* hover effect for slideshow dots */
+.active, .dot:hover {
+    background-color: black;
+}
+
+/* fade animation for slideshow */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+/* Column & Row styling */
+
+@media only screen and (min-width: 900px) {
+    .offset-window-container {               
+        z-index: 1;
+        min-width: 100%;
+        height: 500px;
+    }
+
+    .offset-window-1-sm-left {    
+        z-index: 2;   
+        position: absolute; 
+        float: left;
+        margin-left: 0px; 
+        margin-top: 100px; 
+        width: 70%;
+        height: 300px; 
+        color: white;
+        text-align: center;        
+        font-size: .75em;
+        background-color:rgba(169, 169, 169, 0.6);    
+        border-radius: 0 50px 50px 0; 
+        box-shadow: 1px 1px 15px 1px rgb(0, 0, 0); 
+        -webkit-animation: moveL 2s;
+        animation: moveL 2s; 
+    }       
+
+    .offset-window-2-lg-right {
+        z-index: 1;    
+        float: right;        
+        margin-top: 50px;   
+        margin-right: 0px; 
+        width: 90%;
+        height: 400px;
+        background-color: rgba(99,99,99,0.6);        
+        border-radius: 20px 0 0 20px;
+        box-shadow: 1px 1px 15px 1px rgb(0, 0, 0);        
+    }
+
+        .offset-window-2-lg-right img {
+            display: block;   
+            margin-top: 10px;
+            margin-right: 10px;         
+            margin-left: auto; /* sets the image to right of the container */
+            max-width: 95%; /* auto-resize the image to the desired % of the container */
+            max-height: 95%; /* auto-resize the image to the desired % of the container */
+            border-radius: 10px;
+            box-shadow: 1px 1px 15px 1px rgb(0, 0, 0);
+        }
+
+    .offset-window-3-lg-left {   
+        z-index: 1;      
+        float: left;        
+        margin-left: 0px; 
+        margin-top: 50px; 
+        width: 90%;
+        height: 400px; 
+        background-color: rgba(99,99,99,0.6);
+        border-radius: 0 20px 20px 0; 
+        box-shadow: 1px 1px 15px 1px rgb(0, 0, 0);        
+    }  
+        
+        .offset-window-3-lg-left img {
+            display: block;   
+            margin-top: 10px;
+            margin-right: auto; /* sets the image to right of the container */        
+            margin-left: 5%; 
+            max-width: 95%; /* auto-resize the image to the desired % of the container */
+            max-height: 95%; /* auto-resize the image to the desired % of the container */
+            border-radius: 10px;
+        }
+
+    .offset-window-4-sm-right {
+        z-index: 2;  
+        position: absolute;     
+        margin-top: 100px;   
+        margin-left: 30%; 
+        width: 70%;
+        height: 300px;
+        padding-right: 10%;
+        color: white;
+        text-align: center;        
+        font-size: .75em;
+        background-color:rgba(169, 169, 169, 0.6);
+        border-radius: 50px 0 0 50px;
+        box-shadow: 1px 1px 15px 1px rgb(0, 0, 0);        
+    }
+
+    .offset-window-5-lg-center {   
+        z-index: 1;      
+        float: left;                
+        margin-top: 50px;
+        margin-left: 25%; 
+        width: 50%;
+        height: 400px; 
+        background-color: rgba(99,99,99,0.6);
+        border-radius: 20px; 
+        box-shadow: 1px 1px 15px 1px rgb(0, 0, 0);        
+    }  
+
+    /* .offset-window-container p {
+        color: white;
+        text-align: center;        
+        font-size: .75em;
+    } */
+
+}
+
+/* animation effect for moving the content bar in from the left of the screen on page load */
+@keyframes moveL {
+    from {left: -100vw;}
+    to {left: 0vw;}
+}
+
+/* animation effect for moving the content bar in from the right of the screen on page load, unused currently */
+@keyframes moveR {
+    from {right: -100vw;}
+    to {right: 0vw;}
+}
+/* Center column box */
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Text styling for main content: does NOT include Nav bar or Slideshow text */
+
+h1 {
+    text-transform: uppercase;
+    font-size: 1em;
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+    text-align: center;
+    margin-block-start: 5px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin-top: 3%;
+    display: block;
+    color: #1a1a1a;
+}
+
+p {
+    font-family: "Times New Roman", Times, serif;    
+    letter-spacing: 1px;    
+    margin-block-start: 5px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: block;
+}
+
+center {
+    font-family: "Times New Roman", Times, serif;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+a {
+    color: blue;
+}
+
+q {
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* IMG styling for main content: does NOT include Slideshow images */
+
+.background-image-container img {
+    /* filter: grayscale(75%); */
+    border-radius: 8px;
+    max-width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/* Text/image hover effects */
+
+center:hover {
+    transition: transform 2s;
+    transform: scale(1.05);
+}
+
+/* p:hover {
+    transition: transform 2s;
+    transform: scale(1.05);
+} */
+
+h1:hover {
+    transition: transform 2s;
+    transform: scale(1.05);
+}
+
+/* img:hover {
+    filter: grayscale(0%);
+    transition: transform 2s;
+    transform: scale(1.1);
+} */
+
+/* Footer styling */
+footer {
+    padding: 2%;
+    background-color: #f4f4f4;
+}
+
+/* Contact form styling */
+
+/* contact form button slides in from right on page load*/
+@keyframes movePopup {
+    from {bottom: -5vw;}
+    to {bottom: 1.75vw;}
+}
+
+/* contact button fixed to bottom of page */
+.pop_up_button {
+    bottom: 1.75vw;
+    right: 1.75vw;
+    width: 25vw;
+    background-color: white;
+    color: black;
+    border: solid;
+    cursor: pointer;
+    position: fixed;
+    z-index: 10;
+    -webkit-animation: movePopup 3s;
+    animation: movePopup 3s;
+}
+
+/* popup form hidden by default */
+.form-popup {
+    border: 3px solid #f0f1f0;
+    border-radius: 8px;
+    z-index: 8;
+    display: none;
+    position: fixed;
+    bottom: 6px;
+    right: 6px;
+    z-index: 50;
+}
+
+/* form style */
+.form-container {
+    max-width: 49vw;
+    padding: 9px;
+    background-color: white;
+}
+
+/* input fields */
+.form-container input[type=text], .form-container input[type=password] {
+    width: 100%;
+    padding: .93vw;
+    margin: .6vw 0 .6vw 0;
+    border: none;
+    background: gainsboro;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1vw;
+}
+
+/* submit button */
+.form-container .btn {
+    background-color: white;
+    color: black;
+    border-color: black;
+    margin-bottom: 1vw;
+}
+
+/* close button */
+.form-container .cancel {
+    background-color: black;
+    color: white;
+    border-color: black;
+}
+
+/* button style */
+button {
+    border-radius: 8px;
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: .3vw;
+    font-size: 1.5vw;
+    font-weight: bold;
+    padding: 1.5vw 1.5vw;
+    border-style: solid;
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+}
+
+/* hover effect for buttons */
+button:hover, .form-container .btn:hover {
+    color: white;
+    background-color: darkcyan;
+    -webkit-animation-duration: 2s;
+    transition-duration: 2s;
+    border-style: solid;
+    border-color: silver;
+}
+
+.form-container .cancel:hover {
+    color: white;
+    background-color: darkred;
+    -webkit-transition-duration: 2s; 
+    transition-duration: 2s;
+    border-style: solid;
+    border-color: darkgrey;
+}	
